@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Trasmontano telemedicina</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+  <link rel="stylesheet" href="./jquey/jquery-ui.css">
+  <link rel="stylesheet" href="./jquey/style.css">
+  <script src="./jquey/jquery-1.12.4.js"></script>
+  <script src="./jquey/jquery-ui.js"></script>
+  
+</head>
+
+<body>
+	
+	<script type="text/javascript"> 
+        jQuery(document).ready( function(){       
+            jQuery("#myButton").click( showDialog );
+
+            //variable to reference window
+            $myWindow = jQuery('#myDiv');
+
+            //instantiate the dialog
+            $myWindow.dialog({ height: 350,
+                width: 400,
+                modal: true,
+                position: 'center',
+                autoOpen:false,
+                title:'Alerta',
+                overlay: { opacity: 0.5, background: 'black'}
+                });
+            }
+
+        );
+    //function to show dialog   
+    var showDialog = function() {
+        //if the contents have been hidden with css, you need this
+        $myWindow.show(); 
+        //open the dialog
+        $myWindow.dialog("open");
+        }
+
+    //function to close dialog, probably called by a button in the dialog
+    var closeDialog = function() {
+        $myWindow.dialog("close");
+    }
+
+
+</script>	
+	
+   <script type="text/javascript">
+       $(document).ready(function(){
+           $('#btnAcao').click(function(){
+               $('#dialog_aviso').dialog({modal:true});
+			   $("#dialog_aviso").html( "Teste 123" );			   
+           });
+
+           $('#btnFechar').click(function(){
+			   jQuery('#dialog_aviso').dialog('close');		   
+		   });
+
+       });
+	   
+   </script>	
+	
+    <style>
+        body {
+            padding-top: 50px;
+        }	
+    </style>
+
+	<div id="dialog_aviso" title="Alerta:" style="display:none">
+	  <p>Existe reunião em andamento para esse usuário.</p>
+	  
+	  <input type="button" value="Fechar" name="btnFechar" id="btnFechar" class>
+	</div>
+	
+	<input type="button" value="Click aqui"   name="btnAcao"  id="btnAcao" >
+   
+	<input id="myButton" name="myButton" value="Click Me" type="button" />
+	<div id="myDiv" style="display:none">
+		<p>I am a modal dialog</p>
+	</div>
+   
+	
+	
+</body>
+
+</html>
